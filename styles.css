@@ -203,12 +203,15 @@ img:where([src=""], [src="#"]) {
     margin-top: 16px;
     font-size: 2.7rem;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .bio {
     margin-top: 10px;
     font-size: 1.1rem;
     color: var(--secondary);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
 }
 
 /* ============================================================
