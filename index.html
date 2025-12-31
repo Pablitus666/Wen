@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,7 +8,8 @@
     <title>Barbarita</title>
 
     <!-- SEO -->
-    <meta name="description" content="Página oficial de Barbarita. Acceso directo a redes sociales, formulario de contacto y una galería fotográfica moderna en un diseño profesional y accesible.">
+    <meta name="description"
+        content="Página oficial de Barbarita. Acceso directo a redes sociales, formulario de contacto y una galería fotográfica moderna en un diseño profesional y accesible.">
     <meta name="author" content="Barbarita">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://barbarita.netlify.app/">
@@ -34,8 +36,9 @@
 
     <!-- Open Graph -->
     <meta property="og:title" content="Mi Página de Presentación y Contacto">
-    <meta property="og:description" content="Acceso a mis redes sociales, contacto y una galería fotográfica en una presentación moderna y sencilla.">
-    <meta property="og:image" content="https://barbarita.netlify.app/images/preview.png">
+    <meta property="og:description"
+        content="Acceso a mis redes sociales, contacto y una galería fotográfica en una presentación moderna y sencilla.">
+    <meta property="og:image" content="https://barbarita.netlify.app/images/preview-v2.png">
     <meta property="og:url" content="https://barbarita.netlify.app/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_ES">
@@ -44,7 +47,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mi Página de Presentación y Contacto">
     <meta name="twitter:description" content="Acceso a mis redes sociales, contacto y una galería moderna y accesible.">
-    <meta name="twitter:image" content="https://barbarita.netlify.app/images/preview.png">
+    <meta name="twitter:image" content="https://barbarita.netlify.app/images/preview-v2.png">
 
     <!-- JSON-LD optimizado -->
     <script type="application/ld+json">
@@ -53,7 +56,7 @@
       "@type": "Person",
       "name": "Barbarita",
       "url": "https://barbarita.netlify.app/",
-      "image": "https://barbarita.netlify.app/images/preview.webp",
+      "image": "https://barbarita.netlify.app/images/preview-v2.webp",
       "description": "Página oficial con enlaces, contacto y galería fotográfica.",
       "sameAs": [
         "https://www.instagram.com/bar_bara999999/",
@@ -69,120 +72,113 @@
 
 <body>
 
-<!-- Botón de tema -->
-<div class="theme-toggle">
-    <button id="theme-toggle" aria-pressed="false" title="Cambiar tema">
-        <img id="theme-icon" src="./images/moon.png" alt="Cambiar tema" loading="lazy">
-    </button>
-</div>
-
-<header class="header">
-    <div class="header-banner parallax">
-        <img src="./images/banner.webp"
-             alt="Banner Barbarita"
-             class="banner-img"
-             onerror="this.src='./images/offline-image.png'" />
+    <!-- Botón de tema -->
+    <div class="theme-toggle">
+        <button id="theme-toggle" aria-pressed="false" title="Cambiar tema">
+            <img id="theme-icon" src="./images/moon.png" alt="Cambiar tema" loading="lazy">
+        </button>
     </div>
 
-    <div class="header-content">
-        <img src="./images/perfil.webp"
-             alt="Retrato de Barbarita"
-             class="profile-img"
-             loading="lazy"
-             onerror="this.src='./images/offline-image.png'" />
-
-        <h1 class="name">Barbarita</h1>
-
-        <p class="bio">
-            Bienvenido a mi página oficial — explora mis redes sociales y una pequeña muestra de mi galería de fotos.
-        </p>
-    </div>
-</header>
-
-<section class="links-section section">
-    <h2 class="section-title centered-title">MIS ENLACES</h2>
-
-    <div class="links-list">
-        <a href="https://www.instagram.com/bar_bara999999/" class="link-btn" target="_blank" rel="noopener noreferrer">
-            <img src="./images/instagram.webp" alt="Instagram" class="icon">
-            <span>INSTAGRAM</span>
-        </a>
-
-        <a href="https://facebook.com" class="link-btn" target="_blank" rel="noopener noreferrer">
-            <img src="./images/facebook.webp" alt="Facebook" class="icon">
-            <span>FACEBOOK</span>
-        </a>
-
-        <a href="https://tiktok.com" class="link-btn" target="_blank" rel="noopener noreferrer">
-            <img src="./images/tiktok.webp" alt="TikTok" class="icon">
-            <span>TIKTOK</span>
-        </a>
-
-        <a href="https://telegram.org" class="link-btn" target="_blank" rel="noopener noreferrer">
-            <img src="./images/telegram.webp" alt="Telegram" class="icon">
-            <span>TELEGRAM</span>
-        </a>
-
-        <a href="https://onlyfans.com" class="link-btn" target="_blank" rel="noopener noreferrer">
-            <img src="./images/onlyfans.webp" alt="OnlyFans" class="icon">
-            <span>ONLYFANS</span>
-        </a>
-    </div>
-</section>
-
-<section class="gallery-section section">
-    <h2 class="section-title centered-title">GALERÍA</h2>
-
-    <div class="gallery-grid" id="gallery">
-        <figure><img src="./photo-gallery/1.webp" alt="Foto 1 de galería" loading="lazy"></figure>
-        <figure><img src="./photo-gallery/2.webp" alt="Foto 2 de galería" loading="lazy"></figure>
-        <figure><img src="./photo-gallery/3.webp" alt="Foto 3 de galería" loading="lazy"></figure>
-    </div>
-
-    <div id="lightbox" class="lightbox hidden" aria-hidden="true" tabindex="-1">
-        <img id="lightbox-img" src="" alt="Imagen ampliada">
-    </div>
-</section>
-
-<section class="contact-section section">
-    <h2 class="section-title centered-title">CONTÁCTAME</h2>
-
-    <form 
-        name="contacto"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        class="contact-form"
-        id="contact-form"
-    >
-        <input type="hidden" name="form-name" value="contacto">
-
-        <p class="hidden">
-            <label>No llenar: <input name="bot-field" /></label>
-        </p>
-
-        <input type="text" id="name" name="name" placeholder="Tu nombre" required autocomplete="name">
-        <input type="email" id="email" name="email" placeholder="Tu correo" required autocomplete="email">
-        <textarea id="message" name="message" placeholder="Tu mensaje" required maxlength="250"></textarea>
-        <div id="char-counter-wrapper">
-            <span id="char-counter">0/250</span>
+    <header class="header">
+        <div class="header-banner parallax">
+            <img src="./images/banner.webp" alt="Banner Barbarita" class="banner-img"
+                onerror="this.src='./images/offline-image.png'" />
         </div>
 
-        <button type="submit">Enviar</button>
-    </form>
-</section>
+        <div class="header-content">
+            <img src="./images/perfil.webp" alt="Retrato de Barbarita" class="profile-img" loading="lazy"
+                onerror="this.src='./images/offline-image.png'" />
 
-<footer class="footer">
-    <p>2025 Copyright©. All Rights Reserved. "PABLITUS"® Inc. | La información publicada en esta Página Web está sujeta a cambios sin previo aviso.</p>
-</footer>
+            <h1 class="name">Barbarita</h1>
 
-<!-- Toast flotante -->
-<div id="toast">
-  <span class="toast-icon">✔</span>
-  <span class="toast-text">Mensaje enviado correctamente</span>
-</div>
+            <p class="bio">
+                Bienvenido a mi página oficial — explora mis redes sociales y una pequeña muestra de mi galería de
+                fotos.
+            </p>
+        </div>
+    </header>
 
-<script src="./script.min.js"></script>
+    <section class="links-section section">
+        <h2 class="section-title centered-title">MIS ENLACES</h2>
+
+        <div class="links-list">
+            <a href="https://www.instagram.com/bar_bara999999/" class="link-btn" target="_blank"
+                rel="noopener noreferrer">
+                <img src="./images/instagram.webp" alt="Instagram" class="icon">
+                <span>INSTAGRAM</span>
+            </a>
+
+            <a href="https://facebook.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <img src="./images/facebook.webp" alt="Facebook" class="icon">
+                <span>FACEBOOK</span>
+            </a>
+
+            <a href="https://tiktok.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <img src="./images/tiktok.webp" alt="TikTok" class="icon">
+                <span>TIKTOK</span>
+            </a>
+
+            <a href="https://telegram.org" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <img src="./images/telegram.webp" alt="Telegram" class="icon">
+                <span>TELEGRAM</span>
+            </a>
+
+            <a href="https://onlyfans.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <img src="./images/onlyfans.webp" alt="OnlyFans" class="icon">
+                <span>ONLYFANS</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="gallery-section section">
+        <h2 class="section-title centered-title">GALERÍA</h2>
+
+        <div class="gallery-grid" id="gallery">
+            <figure><img src="./photo-gallery/1.webp" alt="Foto 1 de galería" loading="lazy"></figure>
+            <figure><img src="./photo-gallery/2.webp" alt="Foto 2 de galería" loading="lazy"></figure>
+            <figure><img src="./photo-gallery/3.webp" alt="Foto 3 de galería" loading="lazy"></figure>
+        </div>
+
+        <div id="lightbox" class="lightbox hidden" aria-hidden="true" tabindex="-1">
+            <img id="lightbox-img" src="" alt="Imagen ampliada">
+        </div>
+    </section>
+
+    <section class="contact-section section">
+        <h2 class="section-title centered-title">CONTÁCTAME</h2>
+
+        <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form"
+            id="contact-form">
+            <input type="hidden" name="form-name" value="contacto">
+
+            <p class="hidden">
+                <label>No llenar: <input name="bot-field" /></label>
+            </p>
+
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required autocomplete="name">
+            <input type="email" id="email" name="email" placeholder="Tu correo" required autocomplete="email">
+            <textarea id="message" name="message" placeholder="Tu mensaje" required maxlength="250"></textarea>
+            <div id="char-counter-wrapper">
+                <span id="char-counter">0/250</span>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="footer">
+        <p>2025 Copyright©. All Rights Reserved. "PABLITUS"® Inc. | La información publicada en esta Página Web está
+            sujeta a cambios sin previo aviso.</p>
+    </footer>
+
+    <!-- Toast flotante -->
+    <div id="toast">
+        <span class="toast-icon">✔</span>
+        <span class="toast-text">Mensaje enviado correctamente</span>
+    </div>
+
+    <script src="./script.min.js"></script>
 
 </body>
+
 </html>
