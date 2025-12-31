@@ -1,0 +1,18 @@
+/humans.txt
+/* TEAM */
+Developer: Pablitus
+Role: Diseño & Desarrollo frontend
+Email: pharmakoz@gmail.com
+Site: https://barbarita.netlify.app/
+
+/* THANKS */
+Thanks: Open-source community, Netlify
+
+/* TECHNOLOGIES */
+HTML5: yes
+CSS3: yes
+JavaScript: yes
+PWA: Service Worker, Web App Manifest
+
+/* LAST UPDATED */
+Last update: 2025-12-10

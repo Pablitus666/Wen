@@ -1,0 +1,6 @@
+Contact: mailto:pharmakoz@gmail.com
+Encryption: https://barbarita.netlify.app/pgp-key.txt
+Acknowledgements: https://barbarita.netlify.app/security-acknowledgements
+Preferred-Languages: en, es
+Policy: https://barbarita.netlify.app/security-policy.html
+Hiring: security@https://barbarita.netlify.app/

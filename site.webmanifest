@@ -1,0 +1,23 @@
+{
+  "name": "Barbarita - Página Oficial",
+  "short_name": "Barbarita",
+  "description": "Página oficial de Barbarita con enlaces a redes sociales, galería fotográfica y formulario de contacto.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0E1626",
+  "theme_color": "#0E1626",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./images/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "./images/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

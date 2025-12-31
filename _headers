@@ -1,0 +1,23 @@
+/*
+  # Estas cabeceras de seguridad se aplicarán a todas las páginas del sitio.
+
+  # Content Security Policy (CSP): Define una lista blanca de fuentes de contenido.
+  # default-src 'self': Por defecto, solo permite contenido del mismo origen (tu dominio).
+  # script-src 'self': Solo permite scripts del mismo origen.
+  # style-src 'self' 'unsafe-inline': Permite hojas de estilo locales y estilos en línea (necesario para el efecto parallax del script).
+  # img-src 'self' data:: Permite imágenes locales y datos codificados en base64.
+  # font-src 'self': Solo permite fuentes del mismo origen.
+  # connect-src 'self': Permite conexiones (como fetch) solo al mismo origen (para la función de Netlify).
+  # form-action 'self': Permite que los formularios solo se envíen al mismo origen.
+  # frame-ancestors 'self': Evita que el sitio sea embebido en iframes de otros dominios (previene clickjacking).
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-ancestors 'self';
+
+  # X-Content-Type-Options: Previene que el navegador cambie el tipo MIME de los archivos.
+  X-Content-Type-Options: nosniff
+
+  # Referrer-Policy: Controla la información de 'referer' que se envía.
+  Referrer-Policy: strict-origin-when-cross-origin
+
+  # Permissions-Policy: Deshabilita explícitamente APIs sensibles del navegador que no se usan.
+  Permissions-Policy: microphone=(), camera=(), geolocation=(), payment=()
+*/
