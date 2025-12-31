@@ -217,7 +217,7 @@
 
       try {
         // Tarea única: enviar directamente a la función de Telegram
-        const response = await fetch("/.netlify/functions/send-telegram", {
+        const response = await fetch("/.netlify/functions/send-contact-form", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ name, email, message })
