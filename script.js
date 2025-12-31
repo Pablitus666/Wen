@@ -123,35 +123,74 @@
   });
 
   // ======================================================
-  // LIGHTBOX GALERÍA
+  // LIGHTBOX GALERÍA CON TRAMPA DE FOCO (ACCESIBILIDAD)
   // ======================================================
   const gallery = document.getElementById("gallery");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
-
+  
   if (gallery && lightbox && lightboxImg) {
+    const focusableElementsSelector = 'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])';
+    let previouslyFocusedElement;
+
+    const openLightbox = (imageElement) => {
+      // 1. Guardar el elemento que tenía el foco
+      previouslyFocusedElement = document.activeElement;
+
+      // 2. Mostrar el lightbox
+      lightboxImg.src = imageElement.src;
+      lightbox.classList.remove("hidden");
+      lightbox.setAttribute("aria-hidden", "false");
+      body.style.overflow = "hidden";
+
+      // 3. Deshabilitar todos los elementos enfocables fuera del lightbox
+      const focusableElements = document.querySelectorAll(focusableElementsSelector);
+      focusableElements.forEach(el => {
+        if (!lightbox.contains(el)) {
+          el.setAttribute('data-original-tabindex', el.tabIndex);
+          el.tabIndex = -1;
+        }
+      });
+
+      // 4. Poner el foco en el lightbox
+      lightbox.focus();
+    };
+
+    const closeLightbox = () => {
+      // 1. Ocultar el lightbox
+      lightbox.classList.add("hidden");
+      lightbox.setAttribute("aria-hidden", "true");
+      body.style.overflow = "";
+
+      // 2. Restaurar la capacidad de foco de los elementos deshabilitados
+      const disabledElements = document.querySelectorAll('[data-original-tabindex]');
+      disabledElements.forEach(el => {
+        el.tabIndex = el.getAttribute('data-original-tabindex');
+        el.removeAttribute('data-original-tabindex');
+      });
+
+      // 3. Devolver el foco al elemento original
+      if (previouslyFocusedElement) {
+        previouslyFocusedElement.focus();
+      }
+    };
+
     gallery.addEventListener("click", e => {
       if (e.target.tagName === "IMG") {
-        lightboxImg.src = e.target.src;
-        lightbox.classList.remove("hidden");
-        lightbox.setAttribute("aria-hidden", "false");
-        body.style.overflow = "hidden";
+        openLightbox(e.target);
       }
     });
 
     lightbox.addEventListener("click", e => {
       if (e.target === lightbox) {
-        lightbox.classList.add("hidden");
-        lightbox.setAttribute("aria-hidden", "true");
-        body.style.overflow = "";
+        closeLightbox();
       }
     });
 
     document.addEventListener("keydown", e => {
-      if (e.key === "Escape") {
-        lightbox.classList.add("hidden");
-        lightbox.setAttribute("aria-hidden", "true");
-        body.style.overflow = "";
+      // Solo cerrar si el lightbox está visible
+      if (!lightbox.classList.contains("hidden") && e.key === "Escape") {
+        closeLightbox();
       }
     });
   }
