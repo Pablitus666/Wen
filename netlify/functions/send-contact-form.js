@@ -43,13 +43,18 @@ exports.handler = async function (event) {
       if (!RESEND_API_KEY) {
         throw new Error('La variable de entorno RESEND_API_KEY no está configurada.');
       }
+      // Medida de seguridad para asegurar que el mensaje es un string
+      const cleanMessage = typeof message === 'string' ? message : String(message || '');
+
       const emailHtml = `
         <h1>Nuevo mensaje desde la web</h1>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <hr>
         <p><strong>Mensaje:</strong></p>
-        <p>${message.replace(/\n/g, "<br>")}</p>
+        <div style="padding: 12px; border: 1px solid #e0e0e0; background-color: #f9f9f9; border-radius: 6px; white-space: pre-wrap; word-wrap: break-word;">
+          ${cleanMessage}
+        </div>
       `;
 
       const response = await fetch('https://api.resend.com/emails', {
