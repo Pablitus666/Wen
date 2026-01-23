@@ -1,9 +1,9 @@
-# 🌐 Barbarita — Página Web Oficial
+# 🌐 Wen — Página Web Oficial
 
 Landing page moderna y profesional desarrollada con **HTML, CSS y JavaScript puro**, diseñada como página oficial de presentación, enlaces a redes sociales, galería fotográfica y formulario de contacto, con enfoque en **rendimiento, accesibilidad y privacidad**.
 
 🔗 **Sitio en producción:**
-👉 [https://barbarita.netlify.app/](https://barbarita.netlify.app/)
+👉 [https://wen.netlify.app/](https://wen.netlify.app/)
 
 ---
 
