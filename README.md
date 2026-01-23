@@ -112,7 +112,7 @@ El formulario de contacto utiliza **Netlify Forms**, permitiendo recibir mensaje
 Este proyecto es de uso personal.
 Todos los derechos reservados.
 
-© 2025 — **"PABLITUS"® Inc.**
+© 2026 — **"PABLITUS"® Inc.**
 La información publicada está sujeta a cambios sin previo aviso.
 
 ---
