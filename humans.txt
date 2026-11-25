@@ -3,7 +3,7 @@
 Developer: Pablitus
 Role: Diseño & Desarrollo frontend
 Email: pharmakoz@gmail.com
-Site: https://barbarita.netlify.app/
+Site: https://wen-web.netlify.app/
 
 /* THANKS */
 Thanks: Open-source community, Netlify
@@ -15,4 +15,4 @@ JavaScript: yes
 PWA: Service Worker, Web App Manifest
 
 /* LAST UPDATED */
-Last update: 2025-12-10
+Last update: 2026-11-25

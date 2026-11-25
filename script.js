@@ -20,7 +20,7 @@
     const isLight = theme === "light";
 
     body.classList.toggle("light-mode", isLight);
-    themeIcon.src = isLight ? "./images/sun.png" : "./images/moon.png";
+    themeIcon.src = isLight ? "./images/sun.webp" : "./images/moon.webp";
     themeToggle.setAttribute("aria-pressed", String(isLight));
 
     const toast = document.getElementById("toast");
@@ -75,7 +75,7 @@
         requestAnimationFrame(updateParallax);
         ticking = true;
       }
-    });
+    }, { passive: true });
 
     window.addEventListener("resize", () => {
       winH = window.innerHeight;
@@ -157,22 +157,30 @@
     };
 
     const closeLightbox = () => {
-      // 1. Ocultar el lightbox
-      lightbox.classList.add("hidden");
-      lightbox.setAttribute("aria-hidden", "true");
-      body.style.overflow = "";
-
-      // 2. Restaurar la capacidad de foco de los elementos deshabilitados
+      // 1. Restaurar primero los elementos enfocables del documento.
       const disabledElements = document.querySelectorAll('[data-original-tabindex]');
       disabledElements.forEach(el => {
-        el.tabIndex = el.getAttribute('data-original-tabindex');
+        const originalTabindex = el.getAttribute('data-original-tabindex');
+        if (originalTabindex !== null) {
+          el.tabIndex = Number(originalTabindex);
+        }
         el.removeAttribute('data-original-tabindex');
       });
 
-      // 3. Devolver el foco al elemento original
-      if (previouslyFocusedElement) {
+      // 2. Devolver el foco ANTES de ocultar el lightbox y aplicar aria-hidden.
+      // Así evitamos dejar el foco dentro de un elemento oculto a tecnologías asistivas.
+      if (previouslyFocusedElement && document.contains(previouslyFocusedElement)) {
         previouslyFocusedElement.focus();
+      } else {
+        lightbox.blur();
       }
+
+      // 3. Ahora es seguro ocultar el lightbox.
+      lightbox.classList.add("hidden");
+      lightbox.setAttribute("aria-hidden", "true");
+      body.style.overflow = "";
+      lightboxImg.removeAttribute("src");
+      previouslyFocusedElement = null;
     };
 
     gallery.addEventListener("click", e => {
@@ -283,4 +291,18 @@
       }
     });
   }
+
+  // ======================================================
+  // REGISTRO DEL SERVICE WORKER (PWA / MODO SIN CONEXIÓN)
+  // ======================================================
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("./service-worker.js")
+        .catch(error => {
+          console.warn("No se pudo registrar el Service Worker:", error);
+        });
+    });
+  }
+
 })();

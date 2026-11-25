@@ -1,9 +1,9 @@
-# 🌐 Wen — Página Web Oficial
+# 🌐 Wen — Plantilla web demostrativa
 
-Landing page moderna y profesional desarrollada con **HTML, CSS y JavaScript puro**, diseñada como página oficial de presentación, enlaces a redes sociales, galería fotográfica y formulario de contacto, con enfoque en **rendimiento, accesibilidad y privacidad**.
+Plantilla landing page moderna y profesional desarrollada con **HTML, CSS y JavaScript puro**, diseñada como página oficial de presentación, enlaces a redes sociales, galería fotográfica y formulario de contacto, con enfoque en **rendimiento, accesibilidad y privacidad**.
 
 🔗 **Sitio en producción:**
-👉 [https://wen.netlify.app/](https://wen-web.netlify.app/) 
+👉 [https://wen-web.netlify.app/](https://wen-web.netlify.app/) 
 
 ---
 
@@ -43,7 +43,7 @@ Landing page moderna y profesional desarrollada con **HTML, CSS y JavaScript pur
 ├── script.min.js
 ├── site.webmanifest
 ├── fonts/
-│   └── fonts.css
+│   └── InterVariable.woff2
 ├── images/
 │   ├── banner.webp
 │   ├── perfil.webp
@@ -100,6 +100,10 @@ Este proyecto incluye:
 * ✅ Enfoque privacy-friendly
 
 ---
+
+## 🔧 Personalización de redes sociales
+
+Los botones de redes sociales utilizan inicialmente las páginas principales de cada plataforma. Antes de entregar el sitio a un cliente, sustituye esas direcciones por los perfiles oficiales que proporcione. No se deben asociar perfiles de terceros.
 
 ## 📬 Contacto
 

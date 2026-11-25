@@ -1,7 +1,7 @@
 {
-  "name": "Barbarita - Página Oficial",
-  "short_name": "Barbarita",
-  "description": "Página oficial de Barbarita con enlaces a redes sociales, galería fotográfica y formulario de contacto.",
+  "name": "Wendy - Página de presentación",
+  "short_name": "Wendy",
+  "description": "Página de presentación con enlaces a redes sociales, galería fotográfica y formulario de contacto.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
