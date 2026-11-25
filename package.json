@@ -1,26 +1,18 @@
 {
-  "name": "barbarita-web-main",
+  "name": "wen-web-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Plantilla web demostrativa de presentación, redes sociales, galería y contacto.",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --check script.js && node --check netlify/functions/send-contact-form.js",
     "build:css": "postcss styles.css -o styles.min.css",
     "build:js": "terser script.js -o script.min.js -c -m",
     "build": "npm run build:css && npm run build:js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pablitus666/Barbarita-web.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/Pablitus666/Barbarita-web/issues"
-  },
-  "homepage": "https://github.com/Pablitus666/Barbarita-web#readme",
   "devDependencies": {
     "cssnano": "^7.1.2",
     "postcss": "^8.5.6",

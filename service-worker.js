@@ -1,24 +1,25 @@
 // service-worker.js
-// Versión: 2025-12-10_v1
-const CACHE_VERSION = 'v1.20251210';
+// Versión: 2026-11-25_v5
+const CACHE_VERSION = 'v5.20261125';
 const PRECACHE_NAME = `precache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `runtime-${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
   '/',                      // index.html
   '/index.html',
-  '/styles.css',
-  '/script.js',
+  '/styles.css',             // estilos de la página sin conexión
+  '/styles.min.css',         // hoja de estilos utilizada por index.html
+  '/script.min.js',          // JavaScript utilizado por index.html
   '/site.webmanifest',
-  '/manifest.json',
   '/images/favicon-32x32.png',
   '/images/favicon-16x16.png',
   '/images/apple-touch-icon.png',
   '/images/offline-image.png',
   '/images/banner.webp',
+  '/images/moon.webp',
+  '/images/sun.webp',
   '/images/perfil.webp',
-  '/images/preview.jpg',
-  // añade aquí otras imágenes críticas o assets que quieras precachear
+  '/fonts/InterVariable.woff2',
   '/photo-gallery/1.webp',
   '/photo-gallery/2.webp',
   '/photo-gallery/3.webp',

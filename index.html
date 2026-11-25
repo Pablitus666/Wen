@@ -9,25 +9,18 @@
 
     <!-- SEO -->
     <meta name="description"
-        content="Página oficial de Wendy. Acceso directo a redes sociales, formulario de contacto y una galería fotográfica moderna en un diseño profesional y accesible.">
+        content="Página de presentación y contacto con enlaces a redes sociales, formulario de contacto y galería fotográfica.">
     <meta name="author" content="Wendy">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://wen-web.netlify.app//">
+    <link rel="canonical" href="https://wen-web.netlify.app/">
 
     <!-- Preloads críticos -->
     <link rel="preload" href="./styles.min.css" as="style">
-    <link rel="preload" href="./fonts/fonts.css" as="style">
     <link rel="preload" href="./images/banner.webp" as="image">
-    <link rel="preload" href="./images/perfil.webp" as="image">
-
-    <!-- Google Fonts: Montserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="./fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./styles.min.css">
-    <link rel="stylesheet" href="./fonts/fonts.css">
 
     <!-- Favicons -->
     <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
@@ -35,7 +28,7 @@
     <link rel="apple-touch-icon" href="./images/apple-touch-icon.png">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Mi Página de Presentación y Contacto">
+    <meta property="og:title" content="Wendy">
     <meta property="og:description"
         content="Acceso a mis redes sociales, contacto y una galería fotográfica en una presentación moderna y sencilla.">
     <meta property="og:image" content="https://wen-web.netlify.app/images/preview-v2.png">
@@ -45,24 +38,18 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Mi Página de Presentación y Contacto">
+    <meta name="twitter:title" content="Wendy">
     <meta name="twitter:description" content="Acceso a mis redes sociales, contacto y una galería moderna y accesible.">
     <meta name="twitter:image" content="https://wen-web.netlify.app/images/preview-v2.png">
 
-    <!-- JSON-LD optimizado -->
+    <!-- Datos estructurados: sitio web de presentación -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
+      "@type": "WebSite",
       "name": "Wendy",
       "url": "https://wen-web.netlify.app/",
-      "image": "https://wen-web.netlify.app/images/preview-v2.webp",
-      "description": "Página oficial con enlaces, contacto y galería fotográfica.",
-      "sameAs": [
-        "https://www.instagram.com/bar_bara999999/",
-        "https://www.facebook.com/",
-        "https://tiktok.com/"
-      ]
+      "description": "Página de presentación con enlaces a redes sociales, contacto y galería fotográfica."
     }
     </script>
 
@@ -75,18 +62,18 @@
     <!-- Botón de tema -->
     <div class="theme-toggle">
         <button id="theme-toggle" aria-pressed="false" title="Cambiar tema">
-            <img id="theme-icon" src="./images/moon.png" alt="Cambiar tema" loading="lazy">
+            <img id="theme-icon" src="./images/moon.webp" alt="Cambiar tema" width="96" height="96">
         </button>
     </div>
 
     <header class="header">
         <div class="header-banner parallax">
-            <img src="./images/banner.webp" alt="Banner Barbarita" class="banner-img"
+            <img src="./images/banner.webp" alt="Banner de presentación" class="banner-img" width="1280" height="720" fetchpriority="high" loading="eager"
                 onerror="this.src='./images/offline-image.png'" />
         </div>
 
         <div class="header-content">
-            <img src="./images/perfil.webp" alt="Retrato de Barbarita" class="profile-img" loading="lazy"
+            <img src="./images/perfil.webp" alt="Fotografía de perfil de Wendy" class="profile-img" width="480" height="507" decoding="async"
                 onerror="this.src='./images/offline-image.png'" />
 
             <h1 class="name">Wendy</h1>
@@ -102,29 +89,29 @@
         <h2 class="section-title centered-title">MIS ENLACES</h2>
 
         <div class="links-list">
-            <a href="https://www.instagram.com/bar_bara999999/" class="link-btn" target="_blank"
+            <a href="https://www.instagram.com" class="link-btn" target="_blank"
                 rel="noopener noreferrer">
-                <img src="./images/instagram.webp" alt="Instagram" class="icon">
+                <img src="./images/instagram.webp" alt="Instagram" class="icon" width="240" height="240" loading="lazy" decoding="async">
                 <span>INSTAGRAM</span>
             </a>
 
-            <a href="https://facebook.com" class="link-btn" target="_blank" rel="noopener noreferrer">
-                <img src="./images/facebook.webp" alt="Facebook" class="icon">
+            <a href="https://www.facebook.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <img src="./images/facebook.webp" alt="Facebook" class="icon" width="240" height="240" loading="lazy" decoding="async">
                 <span>FACEBOOK</span>
             </a>
 
-            <a href="https://tiktok.com" class="link-btn" target="_blank" rel="noopener noreferrer">
-                <img src="./images/tiktok.webp" alt="TikTok" class="icon">
+            <a href="https://www.tiktok.com" class="link-btn" target="_blank" rel="noopener noreferrer">
+                <img src="./images/tiktok.webp" alt="TikTok" class="icon" width="240" height="240" loading="lazy" decoding="async">
                 <span>TIKTOK</span>
             </a>
 
             <a href="https://telegram.org" class="link-btn" target="_blank" rel="noopener noreferrer">
-                <img src="./images/telegram.webp" alt="Telegram" class="icon">
+                <img src="./images/telegram.webp" alt="Telegram" class="icon" width="240" height="240" loading="lazy" decoding="async">
                 <span>TELEGRAM</span>
             </a>
 
             <a href="https://onlyfans.com" class="link-btn" target="_blank" rel="noopener noreferrer">
-                <img src="./images/onlyfans.webp" alt="OnlyFans" class="icon">
+                <img src="./images/onlyfans.webp" alt="OnlyFans" class="icon" width="240" height="240" loading="lazy" decoding="async">
                 <span>ONLYFANS</span>
             </a>
         </div>
@@ -134,9 +121,9 @@
         <h2 class="section-title centered-title">GALERÍA</h2>
 
         <div class="gallery-grid" id="gallery">
-            <figure><img src="./photo-gallery/1.webp" alt="Foto 1 de galería" loading="lazy"></figure>
-            <figure><img src="./photo-gallery/2.webp" alt="Foto 2 de galería" loading="lazy"></figure>
-            <figure><img src="./photo-gallery/3.webp" alt="Foto 3 de galería" loading="lazy"></figure>
+            <figure><img src="./photo-gallery/1.webp" alt="Foto 1 de galería" width="900" height="700" loading="lazy" decoding="async"></figure>
+            <figure><img src="./photo-gallery/2.webp" alt="Foto 2 de galería" width="900" height="700" loading="lazy" decoding="async"></figure>
+            <figure><img src="./photo-gallery/3.webp" alt="Foto 3 de galería" width="900" height="700" loading="lazy" decoding="async"></figure>
         </div>
 
         <div id="lightbox" class="lightbox hidden" aria-hidden="true" tabindex="-1">
