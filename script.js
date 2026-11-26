@@ -1,4 +1,4 @@
-// ======================================================
+﻿// ======================================================
 // script.js – Versión Final Profesional + Popup Flotante
 // ======================================================
 
@@ -123,27 +123,78 @@
   });
 
   // ======================================================
-  // LIGHTBOX GALERÍA CON TRAMPA DE FOCO (ACCESIBILIDAD)
+  // LIGHTBOX GALERÍA CON CARRUSEL (7 IMÁGENES POR GALERÍA)
   // ======================================================
   const gallery = document.getElementById("gallery");
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightbox-img");
-  
+  const lightboxPrev = document.getElementById("lightbox-prev");
+  const lightboxNext = document.getElementById("lightbox-next");
+  const lightboxCounter = document.getElementById("lightbox-counter");
+  ;
+
+  // Datos de las galerías: cada una tiene 7 imágenes (1 principal + 6 adicionales)
+  const galleries = [
+    {
+      id: 1,
+      name: "Galería 1",
+      images: [
+        "./photo-gallery/1.webp",
+        "./photo-gallery/g1-2.webp",
+        "./photo-gallery/g1-3.webp",
+        "./photo-gallery/g1-4.webp",
+        "./photo-gallery/g1-5.webp",
+        "./photo-gallery/g1-6.webp",
+        "./photo-gallery/g1-7.webp"
+      ]
+    },
+    {
+      id: 2,
+      name: "Galería 2",
+      images: [
+        "./photo-gallery/2.webp",
+        "./photo-gallery/g2-2.webp",
+        "./photo-gallery/g2-3.webp",
+        "./photo-gallery/g2-4.webp",
+        "./photo-gallery/g2-5.webp",
+        "./photo-gallery/g2-6.webp",
+        "./photo-gallery/g2-7.webp"
+      ]
+    },
+    {
+      id: 3,
+      name: "Galería 3",
+      images: [
+        "./photo-gallery/3.webp",
+        "./photo-gallery/g3-2.webp",
+        "./photo-gallery/g3-3.webp",
+        "./photo-gallery/g3-4.webp",
+        "./photo-gallery/g3-5.webp",
+        "./photo-gallery/g3-6.webp",
+        "./photo-gallery/g3-7.webp"
+      ]
+    }
+  ];
+
+  let currentGalleryIndex = 0;
+  let currentImageIndex = 0;
+
   if (gallery && lightbox && lightboxImg) {
     const focusableElementsSelector = 'a[href], button:not([disabled]), input, textarea, select, [tabindex]:not([tabindex="-1"])';
     let previouslyFocusedElement;
 
-    const openLightbox = (imageElement) => {
-      // 1. Guardar el elemento que tenía el foco
+    function openLightbox(galleryIndex, imageIndex = 0) {
       previouslyFocusedElement = document.activeElement;
 
-      // 2. Mostrar el lightbox
-      lightboxImg.src = imageElement.src;
+      currentGalleryIndex = galleryIndex;
+      currentImageIndex = imageIndex;
+
+      updateLightboxImage();
+
       lightbox.classList.remove("hidden");
       lightbox.setAttribute("aria-hidden", "false");
       body.style.overflow = "hidden";
 
-      // 3. Deshabilitar todos los elementos enfocables fuera del lightbox
       const focusableElements = document.querySelectorAll(focusableElementsSelector);
       focusableElements.forEach(el => {
         if (!lightbox.contains(el)) {
@@ -152,12 +203,30 @@
         }
       });
 
-      // 4. Poner el foco en el lightbox
       lightbox.focus();
-    };
+    }
+
+    function updateLightboxImage() {
+      const gallery = galleries[currentGalleryIndex];
+      const imageSrc = gallery.images[currentImageIndex];
+      lightboxImg.src = imageSrc;
+      lightboxImg.alt = `Foto ${currentImageIndex + 1} de ${gallery.name}`;
+      lightboxCounter.textContent = `${currentImageIndex + 1} / ${gallery.images.length}`;
+    }
+
+    function nextImage() {
+      const gallery = galleries[currentGalleryIndex];
+      currentImageIndex = (currentImageIndex + 1) % gallery.images.length;
+      updateLightboxImage();
+    }
+
+    function prevImage() {
+      const gallery = galleries[currentGalleryIndex];
+      currentImageIndex = (currentImageIndex - 1 + gallery.images.length) % gallery.images.length;
+      updateLightboxImage();
+    }
 
     const closeLightbox = () => {
-      // 1. Restaurar primero los elementos enfocables del documento.
       const disabledElements = document.querySelectorAll('[data-original-tabindex]');
       disabledElements.forEach(el => {
         const originalTabindex = el.getAttribute('data-original-tabindex');
@@ -167,15 +236,12 @@
         el.removeAttribute('data-original-tabindex');
       });
 
-      // 2. Devolver el foco ANTES de ocultar el lightbox y aplicar aria-hidden.
-      // Así evitamos dejar el foco dentro de un elemento oculto a tecnologías asistivas.
       if (previouslyFocusedElement && document.contains(previouslyFocusedElement)) {
         previouslyFocusedElement.focus();
       } else {
         lightbox.blur();
       }
 
-      // 3. Ahora es seguro ocultar el lightbox.
       lightbox.classList.add("hidden");
       lightbox.setAttribute("aria-hidden", "true");
       body.style.overflow = "";
@@ -184,10 +250,24 @@
     };
 
     gallery.addEventListener("click", e => {
-      if (e.target.tagName === "IMG") {
-        openLightbox(e.target);
+      const img = e.target.closest("img");
+      if (img) {
+        const galleryIndex = parseInt(img.getAttribute("data-gallery")) - 1;
+        const imageIndex = parseInt(img.getAttribute("data-index")) || 0;
+        openLightbox(galleryIndex, imageIndex);
       }
     });
+
+    lightboxPrev.addEventListener("click", e => {
+      e.stopPropagation();
+      prevImage();
+    });
+
+    lightboxNext.addEventListener("click", e => {
+      e.stopPropagation();
+      nextImage();
+    });
+
 
     lightbox.addEventListener("click", e => {
       if (e.target === lightbox) {
@@ -196,11 +276,41 @@
     });
 
     document.addEventListener("keydown", e => {
-      // Solo cerrar si el lightbox está visible
-      if (!lightbox.classList.contains("hidden") && e.key === "Escape") {
-        closeLightbox();
+      if (!lightbox.classList.contains("hidden")) {
+        if (e.key === "Escape") {
+          closeLightbox();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          nextImage();
+        } else if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          prevImage();
+        }
       }
     });
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    lightbox.addEventListener("touchstart", e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    lightbox.addEventListener("touchend", e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    }, { passive: true });
+
+    function handleGesture() {
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          nextImage();
+        } else {
+          prevImage();
+        }
+      }
+    }
   }
 
   // ======================================================

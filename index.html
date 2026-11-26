@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -122,13 +122,16 @@
         <h2 class="section-title centered-title">GALERÍA</h2>
 
         <div class="gallery-grid" id="gallery">
-            <figure><img src="./photo-gallery/1.webp" alt="Foto 1 de galería" width="900" height="700" loading="lazy" decoding="async" srcset="./photo-gallery/1-mobile.webp 600w, ./photo-gallery/1.webp 900w" sizes="(max-width: 600px) 90vw, 33vw" /></figure>
-            <figure><img src="./photo-gallery/2.webp" alt="Foto 2 de galería" width="900" height="700" loading="lazy" decoding="async" srcset="./photo-gallery/2-mobile.webp 600w, ./photo-gallery/2.webp 900w" sizes="(max-width: 600px) 90vw, 33vw" /></figure>
-            <figure><img src="./photo-gallery/3.webp" alt="Foto 3 de galería" width="900" height="700" loading="lazy" decoding="async" srcset="./photo-gallery/3-mobile.webp 600w, ./photo-gallery/3.webp 900w" sizes="(max-width: 600px) 90vw, 33vw" /></figure>
+            <figure><img src="./photo-gallery/1.webp" alt="Foto 1 de galería" width="900" height="700" loading="lazy" decoding="async" srcset="./photo-gallery/1-mobile.webp 600w, ./photo-gallery/1.webp 900w" sizes="(max-width: 600px) 90vw, 33vw" data-gallery="1" data-index="0"></figure>
+            <figure><img src="./photo-gallery/2.webp" alt="Foto 2 de galería" width="900" height="700" loading="lazy" decoding="async" srcset="./photo-gallery/2-mobile.webp 600w, ./photo-gallery/2.webp 900w" sizes="(max-width: 600px) 90vw, 33vw" data-gallery="2" data-index="0"></figure>
+            <figure><img src="./photo-gallery/3.webp" alt="Foto 3 de galería" width="900" height="700" loading="lazy" decoding="async" srcset="./photo-gallery/3-mobile.webp 600w, ./photo-gallery/3.webp 900w" sizes="(max-width: 600px) 90vw, 33vw" data-gallery="3" data-index="0"></figure>
         </div>
 
         <div id="lightbox" class="lightbox hidden" aria-hidden="true" tabindex="-1">
+            <button id="lightbox-prev" class="lightbox-nav lightbox-prev" aria-label="Fotografía anterior">‹</button>
             <img id="lightbox-img" src="" alt="Imagen ampliada">
+            <button id="lightbox-next" class="lightbox-nav lightbox-next" aria-label="Fotografía siguiente">›</button>
+            <div id="lightbox-counter" class="lightbox-counter">1 / 7</div>
         </div>
     </section>
 
