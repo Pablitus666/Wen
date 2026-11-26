@@ -1,0 +1,47 @@
+{
+  "name": "Wendy",
+  "description": "Página de presentación y contacto con enlaces a redes sociales, formulario de contacto y galería fotográfica.",
+  "url": "https://wen-web.netlify.app/",
+  "lang": "es",
+  "version": "1.0.0",
+  "categories": ["portfolio", "personal", "photography"],
+  "contacts": {
+    "form": "https://wen-web.netlify.app/",
+    "telegram": "https://telegram.org",
+    "instagram": "https://www.instagram.com",
+    "facebook": "https://www.facebook.com",
+    "tiktok": "https://www.tiktok.com",
+    "onlyfans": "https://www.onlyfans.com"
+  },
+  "resources": {
+    "homepage": "https://wen-web.netlify.app/",
+    "offline": "https://wen-web.netlify.app/offline.html",
+    "manifest": "https://wen-web.netlify.app/site.webmanifest",
+    "sitemap": "https://wen-web.netlify.app/sitemap.xml",
+    "robots": "https://wen-web.netlify.app/robots.txt",
+    "security": "https://wen-web.netlify.app/security.txt",
+    "llms": "https://wen-web.netlify.app/llms.txt"
+  },
+  "images": {
+    "banner": "https://wen-web.netlify.app/images/banner.webp",
+    "profile": "https://wen-web.netlify.app/images/perfil.webp",
+    "offline": "https://wen-web.netlify.app/images/offline-image.png",
+    "theme_light": "https://wen-web.netlify.app/images/sun.webp",
+    "theme_dark": "https://wen-web.netlify.app/images/moon.webp",
+    "favicon_16": "https://wen-web.netlify.app/images/favicon-16x16.png",
+    "favicon_32": "https://wen-web.netlify.app/images/favicon-32x32.png",
+    "pwa_icon_192": "https://wen-web.netlify.app/images/icon-192x192.png",
+    "pwa_icon_512": "https://wen-web.netlify.app/images/icon-512x512.png",
+    "open_graph": "https://wen-web.netlify.app/images/preview-v2.png"
+  },
+  "gallery": [
+    "https://wen-web.netlify.app/photo-gallery/1.webp",
+    "https://wen-web.netlify.app/photo-gallery/2.webp",
+    "https://wen-web.netlify.app/photo-gallery/3.webp"
+  ],
+  "privacy": {
+    "data_collection": "none",
+    "cookies": "none",
+    "form_handling": "Netlify Functions (Telegram, Resend)"
+  }
+}

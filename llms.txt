@@ -1,0 +1,43 @@
+# Wendy
+
+Página de presentación y contacto con enlaces a redes sociales, formulario de contacto y galería fotográfica.
+
+Sitio: https://wen-web.netlify.app/
+
+## Recursos públicos
+
+- Página principal: https://wen-web.netlify.app/
+- Página sin conexión: https://wen-web.netlify.app/offline.html
+- Manifiesto PWA: https://wen-web.netlify.app/site.webmanifest
+- Mapa del sitio: https://wen-web.netlify.app/sitemap.xml
+- Archivo de seguridad: https://wen-web.netlify.app/security.txt
+- Humanos: https://wen-web.netlify.app/humans.txt
+- Formulario de contacto: https://wen-web.netlify.app/ (envía a través de Netlify Function)
+- Galería de fotos: https://wen-web.netlify.app/ (sección Galería en la página principal)
+
+## Imágenes públicas
+
+- Banner: https://wen-web.netlify.app/images/banner.webp
+- Fotografía de perfil: https://wen-web.netlify.app/images/perfil.webp
+- Imagen alternativa (sin conexión): https://wen-web.netlify.app/images/offline-image.png
+- Icono de tema (luna): https://wen-web.netlify.app/images/moon.webp
+- Icono de tema (sol): https://wen-web.netlify.app/images/sun.webp
+- Instagram: https://wen-web.netlify.app/images/instagram.webp
+- Facebook: https://wen-web.netlify.app/images/facebook.webp
+- TikTok: https://wen-web.netlify.app/images/tiktok.webp
+- Telegram: https://wen-web.netlify.app/images/telegram.webp
+- OnlyFans: https://wen-web.netlify.app/images/onlyfans.webp
+- Favicon 16x16: https://wen-web.netlify.app/images/favicon-16x16.png
+- Favicon 32x32: https://wen-web.netlify.app/images/favicon-32x32.png
+- Icono PWA 192x192: https://wen-web.netlify.app/images/icon-192x192.png
+- Icono PWA 512x512: https://wen-web.netlify.app/images/icon-512x512.png
+- Imagen Open Graph: https://wen-web.netlify.app/images/preview-v2.png
+
+## Archivos públicos adicionales
+
+- robots.txt: https://wen-web.netlify.app/robots.txt
+- sitemap.xml: https://wen-web.netlify.app/sitemap.xml
+
+## Notas
+
+Este sitio no recopila datos personales mediante cookies. El formulario de contacto envía los datos a través de una función de Netlify que reenvía a Telegram y Resend. Las variables de entorno (tokens y claves API) no son públicas.
