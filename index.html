@@ -16,7 +16,7 @@
 
     <!-- Preloads críticos -->
     <link rel="preload" href="./styles.min.css" as="style">
-    <link rel="preload" href="./images/banner.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="./images/banner.webp" as="image" fetchpriority="high" imagesrcset="./images/banner-mobile.webp 768w, ./images/banner.webp 1280w" imagesizes="(max-width: 600px) 90vw, 1280px">
     <link rel="preload" href="./fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Stylesheets -->
@@ -55,6 +55,7 @@
 
     <!-- PWA -->
     <link rel="manifest" href="./site.webmanifest">
+    <link rel="ard" href="/ai-catalog.json">
 </head>
 
 <body>
@@ -63,13 +64,13 @@
     <!-- Botón de tema -->
     <div class="theme-toggle">
         <button id="theme-toggle" aria-pressed="false" title="Cambiar tema">
-            <img id="theme-icon" src="./images/moon.webp" alt="Cambiar tema" width="96" height="96">
+            <img id="theme-icon" src="./images/moon-small.webp" alt="Cambiar tema" width="64" height="64">
         </button>
     </div>
 
     <header class="header">
         <div class="header-banner parallax">
-            <img src="./images/banner.webp" alt="Banner de presentación" class="banner-img" width="1280" height="720" fetchpriority="high" loading="eager" />
+            <img src="./images/banner.webp" alt="Banner de presentación" class="banner-img" width="1280" height="720" fetchpriority="high" loading="eager" srcset="./images/banner-mobile.webp 768w, ./images/banner.webp 1280w" sizes="(max-width: 600px) 90vw, 1280px" />
         </div>
 
         <div class="header-content">
