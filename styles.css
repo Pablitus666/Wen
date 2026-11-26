@@ -1,4 +1,4 @@
-/* ============================================================
+﻿/* ============================================================
    VARIABLES PRINCIPALES
 ============================================================ */
 :root {
@@ -354,28 +354,6 @@ img:where([src=""], [src="#"]) {
 
 .lightbox-next {
     right: 20px;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-    border: none;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.3s ease;
-}
-
-.lightbox-close:hover {
-    background: rgba(0,0,0,0.8);
 }
 
 .lightbox-counter {

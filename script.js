@@ -1,4 +1,4 @@
-// ======================================================
+﻿// ======================================================
 // script.js – Versión Final Profesional + Popup Flotante
 // ======================================================
 
@@ -131,7 +131,7 @@
   const lightboxPrev = document.getElementById("lightbox-prev");
   const lightboxNext = document.getElementById("lightbox-next");
   const lightboxCounter = document.getElementById("lightbox-counter");
-  const lightboxClose = document.getElementById("lightbox-close");
+  ;
 
   // Datos de las galerías: cada una tiene 7 imágenes (1 principal + 6 adicionales)
   const galleries = [
@@ -268,10 +268,6 @@
       nextImage();
     });
 
-    lightboxClose.addEventListener("click", e => {
-      e.stopPropagation();
-      closeLightbox();
-    });
 
     lightbox.addEventListener("click", e => {
       if (e.target === lightbox) {
