@@ -402,11 +402,51 @@ textarea {
 }
 
 input:focus,
-textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 10px var(--accent);
-    outline: none;
+
+/**********************************************************
+   AUTOFILL - Mantener estilos en modo claro y oscuro
+**********************************************************/
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+    background: #0f1114 !important;
+    color: var(--text) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    -webkit-text-fill-color: var(--text) !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0f1114 inset !important;
 }
+
+input:-webkit-autofill:hover,
+textarea:-webkit-autofill:hover {
+    background: #0f1114 !important;
+    color: var(--text) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    -webkit-text-fill-color: var(--text) !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0f1114 inset !important;
+}
+
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 10px var(--accent);
+    background: #0f1114 !important;
+    color: var(--text) !important;
+    -webkit-text-fill-color: var(--text) !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0f1114 inset !important;
+}
+
+.light-mode input:-webkit-autofill,
+.light-mode textarea:-webkit-autofill,
+.light-mode input:-webkit-autofill:hover,
+.light-mode textarea:-webkit-autofill:hover,
+.light-mode input:-webkit-autofill:focus,
+.light-mode textarea:-webkit-autofill:focus {
+    color: #ffffff !important;
+    background: #0f1114 !important;
+    border: 1px solid rgba(0,0,0,0.25) !important;
+    -webkit-text-fill-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px #0f1114 inset !important;
+}
+
 
 /* Estilos para el contador de caracteres */
 #char-counter-wrapper {
