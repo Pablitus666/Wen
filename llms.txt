@@ -38,6 +38,13 @@ Sitio: https://wen-web.netlify.app/
 - robots.txt: https://wen-web.netlify.app/robots.txt
 - sitemap.xml: https://wen-web.netlify.app/sitemap.xml
 
+## Ejemplos de consulta
+
+- ¿Cómo puedo contactar con Wendy?
+- ¿Cuáles son las redes sociales de Wendy?
+- ¿Dónde está la galería de fotos de Wendy?
+- ¿Cómo funciona el formulario de contacto de Wendy?
+
 ## Notas
 
 Este sitio no recopila datos personales mediante cookies. El formulario de contacto envía los datos a través de una función de Netlify que reenvía a Telegram y Resend. Las variables de entorno (tokens y claves API) no son públicas.

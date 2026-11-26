@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://wen-web.netlify.app/sitemap.xml
+Agentmap: https://wen-web.netlify.app/ai-catalog.json

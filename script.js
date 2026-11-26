@@ -20,7 +20,7 @@
     const isLight = theme === "light";
 
     body.classList.toggle("light-mode", isLight);
-    themeIcon.src = isLight ? "./images/sun.webp" : "./images/moon.webp";
+    themeIcon.src = isLight ? "./images/sun-small.webp" : "./images/moon-small.webp";
     themeToggle.setAttribute("aria-pressed", String(isLight));
 
     const toast = document.getElementById("toast");
