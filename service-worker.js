@@ -1,6 +1,6 @@
 // service-worker.js
-// Versión: 2026-11-25_v5
-const CACHE_VERSION = 'v5.20261125';
+// Versión: 2026-11-27_v6
+const CACHE_VERSION = 'v6.20261127';
 const PRECACHE_NAME = `precache-${CACHE_VERSION}`;
 const RUNTIME_CACHE = `runtime-${CACHE_VERSION}`;
 
