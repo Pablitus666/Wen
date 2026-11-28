@@ -293,7 +293,16 @@ img:where([src=""], [src="#"]) {
 .gallery-grid img:hover {
     transform: translateY(-6px) scale(1.04);
     filter: brightness(1.12);
-    box-shadow: 0 0 18px var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+    border: 2px solid var(--accent);
+    border-color: var(--accent);
+}
+
+.gallery-grid img:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+    box-shadow: 0 0 20px var(--accent);
+    border: 2px solid var(--accent);
     border-color: var(--accent);
 }
 

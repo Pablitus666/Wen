@@ -206,12 +206,109 @@
       lightbox.focus();
     }
 
+    // Estados de imagen para precarga inteligente
+    const IMAGE_STATE = {
+      PENDING: 'pending',
+      LOADING: 'loading',
+      READY: 'ready',
+      ERROR: 'error'
+    };
+
+    // Mapa de estados de cada imagen por galería
+    const imageStates = new Map();
+
+    // Cola de descargas simultáneas (máximo 2 a la vez)
+    const downloadQueue = [];
+    let activeDownloads = 0;
+    const MAX_CONCURRENT_DOWNLOADS = 2;
+
+    // Procesar la cola de descargas
+    function processDownloadQueue() {
+      while (activeDownloads < MAX_CONCURRENT_DOWNLOADS && downloadQueue.length > 0) {
+        const { url, priority } = downloadQueue.shift();
+        activeDownloads++;
+        preloadImage(url, priority);
+      }
+    }
+
+    // Función de precarga inteligente con estados reales
+    function preloadImage(url, priority = 0) {
+      // Si ya está ready o loading, no hacer nada
+      const currentState = imageStates.get(url);
+      if (currentState === IMAGE_STATE.READY || currentState === IMAGE_STATE.LOADING) {
+        return;
+      }
+
+      // Si hubo error previo, permitir reintento una vez
+      if (currentState === IMAGE_STATE.ERROR) {
+        imageStates.set(url, IMAGE_STATE.PENDING);
+      }
+
+      imageStates.set(url, IMAGE_STATE.LOADING);
+
+      const img = new Image();
+      img.src = url;
+      img.alt = "Precarga";
+      img.loading = "lazy";
+      img.decoding = "async";
+
+      img.decode().then(() => {
+        imageStates.set(url, IMAGE_STATE.READY);
+        activeDownloads--;
+        processDownloadQueue();
+      }).catch(() => {
+        // Fallback: usar onload si decode falla
+        img.onload = () => {
+          imageStates.set(url, IMAGE_STATE.READY);
+          activeDownloads--;
+          processDownloadQueue();
+        };
+        img.onerror = () => {
+          imageStates.set(url, IMAGE_STATE.ERROR);
+          activeDownloads--;
+          processDownloadQueue();
+        };
+      });
+    }
+
+    // Precarga inteligente de una galería completa
+    function preloadGallery(galleryIndex, currentIndex) {
+      const gallery = galleries[galleryIndex];
+      const images = gallery.images;
+
+      // Prioridad 1: imagen siguiente
+      const nextIndex = (currentIndex + 1) % images.length;
+      const nextSrc = images[nextIndex];
+      downloadQueue.push({ url: nextSrc, priority: 1 });
+
+      // Prioridad 2: imagen anterior
+      const prevIndex = (currentIndex - 1 + images.length) % images.length;
+      const prevSrc = images[prevIndex];
+      downloadQueue.push({ url: prevSrc, priority: 2 });
+
+      // Prioridad 3: el resto de imágenes en orden
+      for (let i = 0; i < images.length; i++) {
+        if (i === currentIndex || i === nextIndex || i === prevIndex) continue;
+        downloadQueue.push({ url: images[i], priority: 3 });
+      }
+
+      // Procesar la cola
+      processDownloadQueue();
+    }
+
     function updateLightboxImage() {
       const gallery = galleries[currentGalleryIndex];
       const imageSrc = gallery.images[currentImageIndex];
+
+      // Marcar la imagen actual como ready (ya se está mostrando)
+      imageStates.set(imageSrc, IMAGE_STATE.READY);
+
       lightboxImg.src = imageSrc;
       lightboxImg.alt = `Foto ${currentImageIndex + 1} de ${gallery.name}`;
       lightboxCounter.textContent = `${currentImageIndex + 1} / ${gallery.images.length}`;
+
+      // Precargar las demás imágenes de esta galería (priorizar siguiente y anterior)
+      preloadGallery(currentGalleryIndex, currentImageIndex);
     }
 
     function nextImage() {
